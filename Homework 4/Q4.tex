@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 4}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+
+\begin{document}
+\section*{Exercise 2.64}
+	A Typist makes a typographical error at the rate of 1 every 20 pages. Let $X$ be the number of errors in a manuscript of 200 pages.
+	\begin{enumerate}[\quad(a)]
+		\item Write the binomial distribution model for $X$ and show how you will calculate the exact binomial probability that the manuscript has at least 5 errors.
+		
+		\begin{align*}
+			\text{Let } n &= 200\\
+			\text{Let } p &= \frac{1}{20} = 0.05\\
+			f(x) &= \binom{200}{x} (0.05)^x (0.95)^{200-x}\\
+			P(X \leq 5) &= \sum_{x_i = 0}^{5} f(x_i) \\
+		\end{align*}
+		The rest of the calculation is trivial arithmetic, ergo, I have shown how I would calculate the exact binomial probability that the manuscript has at least 5 errors.
+		\item Why is it reasonable to assume that $X$ has a Poisson distribution? Calculate the Poisson approximation to the probability in $(a)$.
+		
+		It is reasonable to presume a Poisson distribution for $X$ because the Poisson distribution is the binomial distribution taken to the limits of $n \Rightarrow \infty$ and $p \Rightarrow 0$. Because of this, it's used to model the occurrences of rare events, where the opportunity for occurrence is high, but the probability of the event itself occurring is low.
+		\begin{align*}
+			\lambda &= E(X) = np = 200\times 0.05\\
+			\lambda &= 10\\
+			f(x) &= \frac{e^{-\lambda}\lambda^x}{x!} = \frac{e^{-10} 10^x}{x!} \\
+			P(X \leq 5) &= \sum_{x_i = 0}^{5} f(x_i)\\
+			&= \sum_{x_i = 0}^{5} \frac{e^{-10} 10^{x_i}}{x_i!}\\
+			P(X \leq 5) &= 0.0670
+		\end{align*}
+	\end{enumerate}
+\end{document}

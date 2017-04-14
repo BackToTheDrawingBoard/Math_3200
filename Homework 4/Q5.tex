@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 4}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+
+\begin{document}
+\section*{Exercise 2.69}
+The \textbf{negative binomial distribution} is a generalization of the geometric distribution. It is the distribution of the random variable $X$ = the number of independent Bernoulli trials, each with success probability $p$, required to obtain $r \geq 1$ successes. It is used as an alternative to the Poisson distribution to model count data.
+
+\begin{enumerate}[\quad(a)]
+	\item Show that the distribution of $X$ is given by:
+	\[ \binom{x-1}{r-1} p^r (1-p)^{x-r}, x = r, r+1, ... \]
+	
+	Let us first define a binomial distribution with the variant term ($x$) as the number of trials, and the number of successes constant ($r$):
+	\[ f(x) = \binom{x}{r} p^r(1-p)^{x-r} \]
+	However, because we are assured of at least one success in the outcomes that we're concerned with, it doesn't make sense to multiply the probability of a certain outcome by $\binom{x}{r}$, rather, $\binom{x-1}{r-1}$ makes sense in this context. Therefore, the expression for the probability distribution function becomes:
+	\[ f(x) = \binom{x-1}{r-1} p^r(1-p)^{x-r} \]
+	Logically, also, this is only define for the discrete integer $x \geq r$. After all, it's impossible to have $r$ successes with less than $r$ trials.
+	
+	\item Show that the mean and variance of a negative binomial random variable are:
+	\[ E(X) = \frac{r}{p} \quad \text{and} \quad \var(X) = \frac{r(1-p)}{p^2} \]
+	\begin{align*}
+		E(X) &= E(Y_1) + E(Y_2) + ... + E(Y_n)\\
+		E(Y_i) &= 0\left( \frac{1}{1-p} \right) + 1\left( \frac{1}{p} \right)  =\frac{1}{p}\\
+		E(X) &= \sum_{i = 0}^r E(Y_i) = \sum_{i = 0}^r \frac{1}{p}\\
+		E(X) &= \frac{r}{p}\\
+	\end{align*}
+	\begin{align*}
+		\var(X) &= \sum_{i = 0}^r \var(Y_i)\\
+		\var(Y_i) &= E(X^2) - [E(X)]^2\\
+		&= \left[ 0^2\left( \frac{1}{1-p} \right) + 1^2\left( \frac{1}{p} \right) \right] - \frac{1}{p^2}\\
+		\var(Y_i) &= \frac{1}{p} - \frac{1}{p^2} = \frac{(1-p)}{p^2}\\
+		\var(X) &= \sum_{i = 0}^r \frac{(1-p)}{p^2}\\
+		\var(X) &= \frac{r(1-p)}{p^2}
+	\end{align*}
+\end{enumerate}
+	
+\end{document}

@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+
+%Insert page formatting here
+\hoffset = -.5in
+\voffset = -0.375in
+\textwidth = 7in
+\textheight = 10in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 1}
+\chead{\today}
+\cfoot{}
+
+\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+
+\begin{document}
+\begin{minipage}{6in}
+\section*{Exercise 3.14}
+In each of the following situations, name the sampling method used to divide the data from a list of subjects into a training set and a test set with an allocation of 2/3 and 1/3, respectively,
+\begin{enumerate}[\hspace{.5em}a)]
+	\item A random number between 1 and 3 is chosen. Starting with that subject, every third subject is assigned to the training set. All others are assigned to the test set.
+	
+	\hspace{2em} The data is divided into a training and test set with systemic sampling in this case.
+	\item A random number is assigned to each subject onthe list using a computer random number generator. Subjects are ordered by their random number, and the first 203 are assigned to the training set. All others are assigned to the test set.
+	
+	\hspace{2em} Here, the data is divided using random sampling.
+	\item Subjects are assigned random numbers in $(b)$ are divided into two lists by gender. With each list, the first 2/3 of the subjects are ordered by random number to the training set. All others are assigned to the test set.
+	
+	\hspace{2em} This is stratified random sampling to divide the data into two sets.
+\end{enumerate}
+\end{minipage}
+
+\end{document}

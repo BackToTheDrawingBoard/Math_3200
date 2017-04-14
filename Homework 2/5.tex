@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+
+%Insert page formatting here
+\hoffset = -.5in
+\voffset = -0.375in
+\textwidth = 7in
+\textheight = 10in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 1}
+\chead{\today}
+\cfoot{}
+
+\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+
+\begin{document}
+	\section*{Exercise 2.16}
+	
+	Given the following probabilities:
+	\begin{align*}
+	P(A) &= 0.5 & P(B)&= 0.6 & P(C) &= 0.6 \\
+	P(A\cap B) &= 0.3 & P(A\cap C) &= 0.2 & P(B\cap C) &= 0.3 & P(A\cap B \cap C) = 0.1
+	\end{align*}
+	find the conditional probabilities $P(A|B), P(B|C), P(A|B^c), \text{ and } P(B^c| A\cap C)$.
+	
+	\subsection*{Answer}
+	\begin{align*}
+		P(A\cap B ) = 0.3 &= P(A)P(B) \therefore A \text{ and } B \text{ are independent.}\\
+		P(A\cap C ) = 0.2 &\not = P(A)P(C) \therefore A \text{ and } C \text{ are not independent.}\\
+		P(B\cap C ) = 0.3 &\not = P(B)P(C) \therefore A \text{ and } C \text{ are not independent.}\\
+		P(A|B) &= \frac{P(A\cap B)}{P(B)} = \frac{0.3}{0.6} = 0.5 \\
+		P(B|C) &= \frac{P(B\cap C)}{P(C)} = \frac{0.3}{0.6} = 0.5 \\
+		P(A|B^c) &= \frac{P(A\cap (1-P(B)))}{(1-P(B))} = \frac{P(A)(1-P(B))}{(1-P(B))} = \frac{(0.5)(0.4)}{0.4} = 0.5 \\
+		P(B^c| A\cap C) &= \frac{P(B^c \cap A \cap C)}{P(A \cap C)} = \frac{P(A \cap C \cap B^c)}{P(A\cap C)} = \frac{P(A \cap C) - P(A \cap C \cap B)}{P(A \cap C)}\\
+		P(B^c| A\cap C) &= \frac{0.2 - 0.1}{0.2} = 0.5
+	\end{align*}
+	\begin{align*}
+		P(A|B) &= 0.5 & P(B|C) &= 0.5 & P(A|B^c) &= 0.5 & P(B^c| A\cap C) &= 0.5
+	\end{align*}
+	\section*{Exercise 2.17}
+	
+	Let $A$ and $B$ be two events. Suppose that $P(A) = 0.4, P(B) = p, \text{ and } P(A \cup B) = 0.8$.
+	\begin{enumerate}[\ \ (a)\ ]
+		\item For what value of $p$ will $A$ and $B$ be mutually exclusive?\\
+		\textbf{Answer:}  For mutually exclusive events, $P(A\cup B) = P(A) + P(B)$.
+		\begin{align*}
+			0.8 &= 0.4 + p\\
+			p &= 0.4 \\		
+		\end{align*}
+		\item For what value of $p$ will $A$ and $B$ be independent?\\
+		\textbf{Answer:}  For independent events, $P(A\cap B) = P(A)P(B)$.
+		\begin{align*}
+			P(A\cup B) &= P(A) + P(B) - P(A\cap B) \\
+			P(A\cup B) &= P(A) + P(B) - P(A)P(B)\\
+			0.8 &= 0.4 + p - 0.4p\\
+			0.4 &= 0.6p\\
+			p &= \frac{1}{3}\\
+		\end{align*}
+	\end{enumerate}
+	
+\end{document}

@@ -1,0 +1,150 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 3}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+
+\begin{document}
+\section*{Exercise 2.28}
+Consider the function:
+\[ f(x) = P(X=x) = \left \{ \begin{array}{ll}
+	c\left(\frac{1}{2}\right)^x & \text{for } x = 1,2,3,4\\
+	0 & \text{otherwise}
+\end{array} \right\} \]
+
+\begin{enumerate}[\quad(a)]
+	\item Find the constant $c$ such that $f(x)$ satisfies the conditions for a probability mass function.
+	\begin{align*}
+		\int_{-\infty}^\infty f(x) &= 1\\
+		&= \sum_x P(X = x)\\
+		&= c\left( 2^{-1} + 2^{-2} + 2^{-3} + 2^{-4} \right)\\
+		c &= \frac{1}{2^{-1} + 2^{-2} + 2^{-3} + 2^{-4}} = \frac{1}{\tfrac{1}{2} + \tfrac{1}{4} + \tfrac{1}{8} + \tfrac{1}{16} }\\
+		c &= \frac{1}{\tfrac{15}{16}}\\
+		c&= \frac{16}{15}
+	\end{align*}
+	\item Find the cumulative distribution function of $X$.
+	
+	To evaluate the integral, consider that the value by which $c$ is multiplied increases as $\tfrac{1}{2}, \tfrac{1}{4}, \tfrac{1}{8}, \tfrac{1}{16}$, which looks a lot like a negative exponential series.
+	\begin{align*}
+		\int_{-\infty}^{x} f(x) &= F(x)\\
+		&= c(1 - 2^{-\lfloor x \rfloor }) \\
+		F(x) &= \frac{16}{15} (1 - 2^{-\lfloor x \rfloor })\\
+		\therefore F(x) &= \left\{ 
+		\begin{array}{ll}
+			\frac{16}{15} (1 - 2^{-\lfloor x \rfloor }) & 1 \leq x\\
+			0 & \text{otherwise}
+		\end{array} \right\} 
+	\end{align*}
+	\item Find $P(1\leq X < 3)$
+	\begin{align*}
+		P(1\leq X < 3) &= \lim_{y\rightarrow 3} \sum_{x_i = 1}^{y} P(X=x_i)\\
+		&= P(X=1) + P(X=2)\\
+		&= \frac{16}{15}(2^{-1}) + \frac{16}{15}(2^{-2})\\
+		&= \frac{8}{15} + \frac{4}{15}\\
+		P(1\leq X < 3) &= \frac{12}{15}
+	\end{align*}
+\end{enumerate}
+\newpage
+\section*{Exercise 2.32}
+Consider the following function
+\[ f(x) = \left\{
+\begin{array}{ll}
+	0.5 & 0 \le x \le 1\\
+	0.5 + c(x-1) & 1\leq x \leq 3\\
+	0 & \text{otherwise}
+	\end{array}
+\right\} \]
+\begin{enumerate}[\quad(a)]
+	\item Find the constant $c$ such that $f(x)$ is a p.d.f.
+	\begin{align*}
+		\int_{-\infty}^\infty f(x) &= 1\\
+		&= \int_{-\infty}^{0} 0\, dx + \int_{0}^{1} 0.5 \, dx + \int_{1}^{3} 0.5 + c(x-1)\, dx + \int_{0}^\infty 0 \, dx\\
+		&= 0.5 + \int_{1}^{3} 0.5\, dx + \int_{1}^{3} c(x-1)\, dx\\
+		1 &= 1.5 + \int_{1}^{3} cx\, dx - \int_{1}^{3} c\, dx\\
+		-0.5 &= -2c + \tfrac{1}{2} [cx^2]_1^3\\
+		1 &= 4c - [9c - c] = -4c\\
+		c &= -\tfrac{1}{4}
+	\end{align*}
+	\item Find the c.d.f. c. t. $f(x)$.
+	\[\int_{-\infty}^{x} f(x) = F(x)\]
+	\begin{center}
+		Answer and work on the following page, too big to just fit on this one
+	\end{center}
+	\begin{align*}
+		-\infty \le x \leq 0\\
+		\int_{-\infty}^{x} 0\, dx &= 0\\
+		0 \le x \le 1\\
+		\int_{0}^{x} 0.5\, dx &= 0.5(x-0) = 0.5x\\
+		1 \leq x \leq 3\\
+		\int_{1}^{x} 0.5 + cx - c\, dx &= \tfrac{1}{2}(x-1) + \int_{1}^{x} cx\, dx - \int_{1}^{x} c\, dx\\
+		&= \tfrac{1}{2}(x-1) + \int_{1}^{x} -\tfrac{1}{4}x\, dx - \int_{1}^{x} -\tfrac{1}{4}\, dx\\
+		&= \tfrac{3}{4}(x-1) - \frac{1}{4} \int_1^x x\,dx\\
+		&= \tfrac{3}{4}(x-1) - \frac{1}{8} [x^2]_1^x\\
+		&= \tfrac{3}{4}(x-1) - \frac{1}{8} [x^2-1]\\
+		&= -\tfrac{3}{4} + \tfrac{1}{8} + \tfrac{3}{4}x - \tfrac{1}{8} x^2\\
+		&= -\tfrac{5}{8} + \tfrac{3}{4} x - \tfrac{1}{8} x^2\\
+		3 \le x\\
+		\int_{3}^{x} 0\, dx &= 0\\
+		F(x) &= \left\{
+		\begin{array}{ll}
+			\int_{-\infty}^{x} f(x) \, dx & -\infty \le x \leq 0 \\
+			\int_{-\infty}^{0} f(x) \, dx + \int_{0}^{x} f(x) \, dx  & 0 \le x \le 1\\
+			\int_{-\infty}^{1} f(x) \, dx + \int_{1}^{x} f(x) \, dx & 1\leq x \leq 3\\
+			\int_{-\infty}^{3} f(x) \, dx + \int_{3}^{x} f(x) \, dx & 3 \le x \le \infty
+		\end{array}
+		\right\} \\
+		F(x) &= \left\{
+		\begin{array}{ll}
+			0 & -\infty \le x \leq 0 \\
+			\tfrac{1}{2}x& 0 \le x \le 1\\
+			\tfrac{1}{2} -\tfrac{5}{8} + \tfrac{3}{4} x - \tfrac{1}{8} x^2 & 1\leq x \leq 3\\
+			1 & 3 \le x \le \infty
+			\end{array}
+		\right\} \\
+		F(x) &= \left\{
+		\begin{array}{ll}
+		0 & -\infty \le x \leq 0 \\
+		\tfrac{1}{2}x& 0 \le x \le 1\\
+		-\tfrac{1}{8} + \tfrac{3}{4} x - \tfrac{1}{8} x^2 & 1\leq x \leq 3\\
+		1 & 3 \le x \le \infty
+		\end{array}
+		\right\} \\
+	\end{align*}
+	\item Find $P(1\leq X < 3)$
+	\begin{align*}
+		P(1\leq X < 3) &= \lim_{y\rightarrow 3} \int_{1}^{y} P(X=x_i)\\
+		&= 0.5 + \text{ a little bit}
+	\end{align*}
+	It's late, I'm tired, I'm on the verge of a breakdown, and I can't miss my doctor's appointment tomorrow. Sorry, I'm going to sleep
+\end{enumerate}
+
+\end{document}

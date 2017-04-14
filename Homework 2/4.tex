@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 1}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+
+\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+
+\begin{document}
+\section*{Exercise 2.14}
+			
+A mathematics contest is held among four high schools. Each school enters a team of three students. The twelve contestants are ranked from 1 (best performance) to 12 (worst performance). The team that has the overall best performance (i.e., the lowest sum of ranks of the three students in the team) gets an award. In how many ways can the 12 ranks be assigned among the four teams without distinguishing between the individual ranks of the students in each team (since only the sub of their ranks matters)?
+\subsection*{Answer}$\ $
+
+Let the set of outcomes described by the permutation of all competitors be $A$. Let the set of unique orderings of competitors by school, be $B$. 
+
+Consider an array of the competitors, which gives rise to a certain ranking of schools, $A$. Since every permutation of a school's competitors puts it in the same state (some outcome in $B$), in comparison to the other schools, each school has $P(3,3) = 6$ different outcomes, for every state in $B$. However, for each state that one school can finish in, the other three schools can finish in any of their outcomes that give them the same outcome. Therefore, there are $6^4 = 1296$ elements in $A$ for every one element in $B$. 
+
+Therefore, every unique ordering of the schools' competitors in $B$ (e.g. AAABBBCCCDDD vs. AAABBBCCDCDD) is characterized by 1296 permutations of the competitors themselves. Because every ordering of competitors must result in some ordering of the schools (logically), the all possible orderings of competitors in $A$, described by simply $P(12,12) = 12! = 479,001,600$, must map to some unique ordering in $B$.
+
+\textit{Thusly}, we can say that the permutation of all possible placements divided by the number of permutations that give a single ordering of the school's competitors is the number of possible orderings of the competitors for different schools.
+\[ |B| = \frac{|A|}{1296} = \frac{P(12,12)}{1296} = 369600 \]
+
+Therefore, there are 369600 different unique orderings of competitors in set B.
+
+\end{document}

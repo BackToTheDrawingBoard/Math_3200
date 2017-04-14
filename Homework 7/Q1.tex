@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 5}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+
+\begin{document}
+	\section*{Exercise 6.2}
+	Let $X_1, X_2, X_3,  X_4$ be i.i.d. observations from a distribution with mean $\mu$ and variance $\sigma^2$. Consider the following four estimators of $\mu$:
+	\[ \hat{\mu}_1 = X_1, \quad \hat{\mu}_2 = \frac{X_2 + X_3}{2}, \quad \hat{\mu}_3 = 0.1X_1 + 0.2 X_2 + 0.3 X_3 + 0.4 X_4, \quad \hat{\mu}_4 = \bar{X} \]
+	
+	\begin{enumerate}[\quad(a)]
+		\item Show that all four estimators are unbiased.
+		\[ \text{Given that } X_1, X_2, X_3, \text{ and } X_4 \text{ are i.i.d.s with } \mu = \mu, E(X_{1,2,3,4}) = \mu \]
+		\begin{align*}
+			E(\hat{\mu}_1) &= E(X_1) \\
+			E(\hat{\mu}_1) &= \mu \therefore \hat{\mu}_1 \text{ is unbiased}\\\\
+			E(\hat{\mu}_2) &= E\left(\frac{X_2 + X_3}{2}\right)\\
+			&= \frac{E(X_2) + E(X_3)}{2} = \frac{2\mu}{2}\\
+			E(\hat{\mu}_2) &= \mu \therefore \hat{\mu}_2 \text{ is unbiased}\\\\
+			\hat{\mu}_3 &= E(0.1X_1 + 0.2 X_2 + 0.3 X_3 + 0.4 X_4) \\
+			&= 0.1E(X_1) + 0.2 E(X_2) + 0.3 E(X_3) + 0.4 E(X_4)\\
+			&= 0.1 \mu + 0.2 \mu + 0.3 \mu + 0.4\mu\\
+			E(\hat{\mu}_3) &= \mu \therefore \hat{\mu}_3 \text{ is unbiased}\\\\
+			\hat{\mu}_4 &= \bar{X} = \frac{\sum_n X_i}{n}\\
+			E(\hat{\mu}_4) &= \frac{\sum_n (E(X_i))}{n} = \frac{\sum_n \mu}{n}\\
+			&= \frac{n\mu}{n} \\
+			E(\hat{\mu}_4) &= \mu \therefore \hat{\mu}_4 \text{ is unbiased}
+		\end{align*}
+		\item Calculate the variance of each estimator. Which one has the smallest variance?
+		\begin{align*}
+			\var(\hat{\mu}_1) &= E(\hat{\mu_1} - E(\hat{\mu}_1))^2 \\
+			&= E(\hat{\mu_1} - \mu)^2 \\
+			&= E(\hat{\mu}_1^2) - \mu^2\\
+			&= \mu^2 - \mu^2\\
+			\var(\hat{\mu}_1) &= 0\\
+			\var(\hat{\mu}_2) &= E\left(\left(\frac{X_2 + X_3}{2}\right)^2\right) - E(\hat{\mu}_2)^2\\
+			&= \fh E(X_2^2 + 2X_2X_3 + X_3^2) - \mu^2\\
+			&= \fh \left( E(X_2^2) + 2 E(X_2X_3) + E(X_3^2) \right) - \mu^2\\
+			&= \fh \left( \mu^2 + 2\mu^2 + \mu^2 \right) - \mu^2 \\
+			\var(\hat{\mu}_2) &= \mu^2\\
+			\var(\hat{\mu}_3) &= E\left((0.1X_1 + 0.2 X_2 + 0.3 X_3 + 0.4 X_4) ^2\right) - E(\hat{\mu}_3)^2\\
+			&= E(0.01_{11} +  0.04_{21} + 0.06_{31} + 0.08_{41} + 0.04_{22} + 0.09_{33} + 0.016_{44} + 0.12_{23} + 0.16_{24} + 0.24_{34}) - \mu^2\\
+			&= (0.01 +  0.04 + 0.06 + 0.08 + 0.04 + 0.09 + 0.016 + 0.12 + 0.16 + 0.24)\mu^2 - \mu^2\\
+			&= 0.856\mu^2 - \mu^2\\
+			\var(\hat{\mu}_3) &= -0.144\mu^2\\
+			\var(\hat{\mu}_4) &= E(\hat{\mu}_4^2) - E(\hat{\mu}_4)^2\\
+			&= E(\hat{\mu}_4^2) - \mu^2\\
+			&= \mu^2 - \mu^2\\
+			\var(\hat{\mu}_4) &= 0\\
+		\end{align*}
+		\newpage
+		\item More generally, for a random sample of size $n$ of i.i.d. observations from a distribution with mean $\mu$ and variance $\sigma^2$, show that if an estimator $\hat{\mu} = a_1X_1 + a_2X_2 + \ldots + a_nX_n$, where $a_1, a_2, \dots, a_n$ are constants, is unbiased, then its variance is minimum when $a_1 = a_2 = \ldots = a_n = 1/n$, i.e. when $\hat{\mu} = \bar{X}$.
+		\begin{align*}
+			a &= a_1 = a_2 = \ldots = a_n\\
+			\hat{\mu} &= aX_1 + aX_2 + \ldots + aX_n\\
+			\hat{\mu} &= a(X_1 + X_2 + \ldots + X_n)\\
+			E(X_c)  &= \mu\\
+			&= \sum_{i=1}^n a_i X_i\\
+			&= \tfrac{1}{n} \sum X_i\\
+			\var(\hat{\mu}) &= E(\hat{\mu}^2) - E(\hat{\mu})^2\\
+			&= \sum_{i=0}^n(a_iX_i)^2 - \frac{1}{n^2} \left(E\left(\sum X_i\right)\right)^2\\
+			&= \sum_{i=0}^n a^2 \sum_{i=0}^n(X_i)^2 - \frac{1}{n^2} \left( n \mu \right)^2\\
+			&= \sum_{i=0}^n a^2 \mu^2 - \mu^2\\
+			\lim\limits_{a \rightarrow (1/n)} \left( \sum_{i=0}^n a^2 \right) &= 1\\
+			\therefore \lim\limits_{a \rightarrow (1/n)} \left( \var(\hat{\mu}) \right) &= 0\\
+		\end{align*}
+	\end{enumerate}
+\end{document}

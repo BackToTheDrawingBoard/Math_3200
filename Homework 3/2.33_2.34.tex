@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 3}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+
+\begin{document}
+\section*{Exercise 2.33}
+\begin{enumerate}[\quad(a)]
+	\item Is the random variable $X$ discrete or continuous?
+	
+	Given that the cumulative distribution function is continuous, the random variable $X$ also must be continuous.
+	\item What is the probability that $1 \leq x \leq 3$?
+	
+	\begin{align*}
+		P(1\leq X \leq 3) &= P(X \leq 3) - P(X \leq 1)\\
+		&= 0.8 - 0.4 \\
+		P(1\leq X \leq 3) &= 0.4
+	\end{align*}
+	
+	\item What is the probability that $X \geq 1$?
+	
+	\begin{align*}
+	P(X\geq 1) &= P(X \leq \infty) - P(X \leq 1)\\
+	&= 1 - 0.4 \\
+	P(X\geq 1) &= 0.6
+	\end{align*}
+\end{enumerate}
+\section*{Exercise 2.34}
+\begin{enumerate}
+	\item Is the random variable $X$ discrete or continuous?
+	
+	Given that the cumulative distribution function is discontinuous (or stepped), the random variable $X$ must be discrete.
+	\item What is the probability that $1 \leq X \leq 2$?
+	
+	\begin{align*}
+	P(1\leq X \leq 2) &= P(X \leq 2) - P(X \leq 1)\\
+	&= 0.8 - 0.4 \\
+	P(1\leq X \leq 3) &= 0.4
+	\end{align*}
+	
+	\item What is the probability that $X\geq 1$?
+	
+	\begin{align*}
+	P(X\geq 1) &= P(X \leq \infty) - P(X \leq 1)\\
+	&= 1 - 0.4 \\
+	P(X\geq 1) &= 0.6
+	\end{align*}
+	
+\end{enumerate}
+\end{document}

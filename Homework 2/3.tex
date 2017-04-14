@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 1}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+
+\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+
+\begin{document}
+\section*{Exercise 2.6}
+In a state lottery game, you must match all 6 numbers drawn at random from 1 to 54 without replacement to win the grand prize, 5 out of 6 numbers to win the second prize, and 3 out of 6 numbers to win the third prize. The order of the numbers is irrelevant. Find the probability of winning each prize.
+
+\subsection*{Answer}
+Let the probability of some event occurring be fundamentally be described as $P(A) = \frac{M}{N}$, that is, the probability of some outcome $A$ be $M$ number of outcomes that affirm $A$ out of all the totally possible outcomes $N$. To win a grand prize (let this be $A_1$), $N$ is the combination of all possible winning sets for some ticket of six numbers. Only one outcome, that is, $M$, achieves $A$, so that the player wins a grand prize. Therefore, the probability that a player wins a grand prize is:
+\begin{align*}
+	P(A_1) &= \frac{1}{\binom{54}{6}} = \frac{1}{25827165} \\
+	P(A_1) &= 3.87\times 10^{-8}
+\end{align*}
+In layman's terms, next to no chance. For the second place prize (let this be $A_2$), there are six different combinations of the numbers on the card (i.e. $\binom{6}{5}$ ) that might win, again out of $\binom{54}{6}$ possible numbers.
+\[ P(A_2) = \frac{\binom{6}{5}}{\binom{54}{6}} = 2.32 \times 10^{-7} \]
+Marginally better, but still not great. For the third place prize (let this be $A_3$), there are $\binom{6}{4}$ numbers on the card that might win, again out of $\binom{54}{6}$ possible numbers.
+\[ P(A_3) = \frac{\binom{6}{4}}{\binom{54}{6}} = 5.81 \times 10^{-7} \]
+Great news for the state! Having to pay out an of the first, second, and third highest prizes is an extremely unlikely occurrence.
+\end{document}

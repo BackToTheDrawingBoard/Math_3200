@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 1}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+
+\begin{document}
+	\section*{Exercise 4.38}
+	
+	The correlation coefficient between the midterm scores and final scores in a course is 0.75. A student scored two standard deviations below the mean on the midterm. How many standard deviations above/below the mean would that student be predicted to score on the final? If the final mean and SD are 75 (out of 100) and 12, respectively, what is that student's predicted score on the final?
+
+	\subsection*{Answer}
+	Let the student's score on the midterm be $x$, and the student's score on the final be $y$.\\
+	Given that the correlation is 0.75, the student was 2 SDs below the median at the midterm, and the mean and SD of the final are 75 and 12, let $r$ be the correlation coefficient, $s_x$ and $s_y$ be the sample standard deviation for $x$ and $y$, $\bar{y}$ and $\bar{x}$ be the mean of $y$ and $x$. Based on equation 4.9 in the textbook, we can write:
+	\[ r = 0.75 \qquad x-\bar{x} = -2s_x \qquad s_y = 12 \qquad \bar{y} = 75 \]
+	\begin{align*}
+		\frac{y-\bar{y}}{s_y} &= r\left [ \frac{x - \bar{x}}{s_x} \right ] \\
+		\frac{y-\bar{y}}{s_y} &= (0.75) \left [ \frac{-2s_x}{s_x} \right ] \\
+		y-\bar{y} &= -1.5(s_y) \\
+		y &= 75 - 18 = 57\\
+	\end{align*}
+	Given that $y-\bar{y} = -1.5s_y$, the student's score will be 1.5 standard deviations below the mean. As you can see above, student's predicted score is 57.
+
+
+\end{document}

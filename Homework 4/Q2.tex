@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 4}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+
+\begin{document}
+\section*{Exercise 2.59}
+	A grocery store has 10 checkout lanes. During a busy hour, the probability that any given lane is occupied (has at least one customer) is 0.75. Assume that the lanes are occupied or not occupied independently of each other.
+	\begin{enumerate}[\quad(a)]
+		\item What is the probability that a customer will find at least one lane unoccupied?
+		\begin{align*}
+			P(X < n) &= 1 - P(X = n)\\
+			&= 1 - P(\text{occupied})^n\\
+			&= 1 - (0.75)^{10}\\
+			P(X \leq (n-1)) &= 0.9437\\
+		\end{align*}
+		\item What is the expected number of occupied lanes? What is the standard deviation of the number of occupied lanes?
+		\begin{align*}
+			E(X) &= np = 10\times 0.75\\
+			E(X) &= 7.5 \\
+			\var(X) &= np(1-p) = 10\times 0.75(1-0.75)\\
+			\var(X) &= 1.875
+		\end{align*}
+	\end{enumerate}
+\end{document}

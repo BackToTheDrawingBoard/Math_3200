@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 1}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+
+\begin{document}
+			\section*{Exercise 2.27}
+			
+				The accuracy of a medical diagnosis test, in which a positive result indicates the presence of a disease, is often stated in terms of its sensitivity, the proportion of diseased people that test positive or $P(+|\text{Disease})$, and its specificity, the proportion of people without the disease who test negative or $P(-|\text{No Disease})$. Suppose that 10\% of the population has the disease (called the prevalence rate). A diagnostic test for the disease has a 99\% sensitivity and 98\% specificity. Therefore,
+				\begin{align*}
+					P(+|\text{Disease}) = 0.99,& P(-|\text{No Disease}) = 0.98,\\
+					P(-|\text{Disease}) = 0.01,& P(+|\text{No Disease}) = 0.02.\\
+				\end{align*}
+				
+			First, note Bayes' theorem:
+			\[ P(B|A) = \frac{P(A|B) P(B)}{P(A)} = \frac{P(A|B) P(B)}{P(A|B){P(B) + P(A|\bar{B})P(\bar{B})}} \]
+			\begin{enumerate}[\ \ (a)\ ]
+				\item A person's test result is positive. What is the probability that the person actually has the disease?\\
+				\textbf{Answer}:  Let $B$ be that the person has the disease, and let $A$ be that the person tested positive. In this case, $P(B) = 0.10, P(\bar{B}) = 0.90$.
+				\begin{align*}
+					P(B|A) &= \frac{P(A|B) P(B)}{P(A|B){P(B) + P(A|\bar{B})P(\bar{B})}} = \frac{(0.99)(0.10)}{(0.99)(0.10) + (0.02)(0.90)}\\
+					P(B|A) &= \frac{0.099}{0.099+0.018}\\
+					P(B|A) &= 0.846
+				\end{align*}
+				\item A person's test result is negative. What is the probability that the person actually does not have the disease. Considering this result and the result from (a), would you say that this diagnostic test is reliable? Why, or why not?\\
+				\textbf{Answer}:  Let $B$ be that the person does not have the disease, and let $A$ be that the person tested negative. In this case, $P(B) = 0.90, P(\bar{B}) = 0.10$.
+				\begin{align*}
+				P(B|A) &= \frac{P(A|B) P(B)}{P(A|B){P(B) + P(A|\bar{B})P(\bar{B})}} = \frac{(0.98)(0.90)}{(0.98)(0.90) + (0.01)(0.001)}\\
+				P(B|A) &= \frac{0.882}{0.882+0.018}\\
+				P(B|A) &= 0.999
+				\end{align*}
+				The test appears fairly accurate, with a 84.6\% change of a correct diagnosis in the affirmative, and an even higher, 99.9\% chance of correct diagnosis in the negative.
+				\pagebreak
+				\item Now suppose that the disease is rare with a prevalence rate of 0.1\%. Using the same diagnostic test, what is the probability that the person who tests positive actually has the disease?\\
+				\textbf{Answer}:  Let $B$ be that the person has the disease, and let $A$ be that the person tested positive. In this case, $P(B) = 0.001, P(\bar{B}) = 0.999$.
+				\begin{align*}
+				P(B|A) &= \frac{P(A|B) P(B)}{P(A|B){P(B) + P(A|\bar{B})P(\bar{B})}} = \frac{(0.99)(0.001)}{(0.99)(0.001) + (0.02)(0.999)}\\
+				P(B|A) &= \frac{0.0099}{0.0099+0.0198}\\
+				P(B|A) &= 0.0474
+				\end{align*}
+				\item The results from (a) and (c) are based on the same diagnostic test applied to populations with very different prevalence rates. Does this suggest any reason why mass screening programs should not be recommended for a very rare disease? Explain.\\
+				\textbf{Answer}:  These results suggest that mass screenings for any rare disease are largely futile. With an abysmal 4.74\% chance of a correct diagnosis in the affirmative, these tests are almost purely a waste of money.
+			\end{enumerate}
+	
+\end{document}

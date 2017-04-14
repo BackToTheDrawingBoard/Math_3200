@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 5}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+
+\begin{document}
+\section*{Exercise 2.48}
+Show the following relationships:
+\begin{enumerate}[\quad(a)]
+	\item $ \cov(aX + b, cY + d) = ac \cov(X,Y) $ where $a$, $b$, $c$, and $d$ are constants.
+	
+	\begin{align*}
+	\cov(aX + b, cY + d) &= E[(aX + b - \mu_x)(cY + d - \mu_y)]\\
+	\mu_x &= b\\
+	\mu_y &= d\\
+	&= E(aXcY) + bd - bd\\
+	&= acE(XY)\\
+	\cov(aX + b, cY + d) &= ac \cov(X,Y)
+	\end{align*}
+	\item $ \var(X \pm Y) = \var(X) + \var(Y) \pm 2 \cov(X,Y) $
+	
+	\begin{align*}
+	\var(X \pm Y) &= E((X \pm Y) - \mu_{X\pm Y})^2\\
+	&= E((X) \pm E(Y) - \mu_{X\pm Y})^2\\
+	&= \left( E(X - \mu_x) \pm E(Y - \mu_y) \right)^2\\
+	&= E(X - \mu_x)^2 + E(Y - \mu_y)^2 \pm E(X - \mu_x)E(Y - \mu_y)\\
+	\var(X \pm Y) &= \var(X) + \var(Y) \pm 2 \cov(X,Y)
+	\end{align*}
+	\item If $X$ and $Y$ are independent, then $\cov(X,Y) = 0$ 
+	
+	\begin{align*}
+	\cov(X,Y) &= E(XY) - E(X)E(Y)\\
+	\text{Given $X$ and $Y$}&\text{ are independent}\\
+	E(XY) &= E(X)E(Y)\\
+	\therefore 0 &= E(XY) - E(X)E(Y)\\
+	\cov(X,Y) &= 0
+	\end{align*}
+\end{enumerate}
+
+\section*{Exercise 2.49}
+
+Let $X_1$ and $X_2$ be uncorrelated random variables. Show that $Y_1 = X_1 + X_2$ and $Y_2 = X_1 - X_2$ are uncorrelated.
+
+\begin{align*}
+	E(X_1X_2) &= E(X_1) E(X_2)\\
+	Corr(Y_1, Y_2) &= \frac{\cov(Y_1, Y_2)}{\sqrt{\var(Y_1)\var(Y_2)})}\\
+	\cov(Y_1, Y_2) &= E[(X_1 + X_2)(X_1 - X_2)] - E(X_1 + X_2)E(X_1 - X_2)\\
+	&= E[(X_1)^2 - (X_2)^2] - \left[ E(X_1) + E(X_2) \right]\left[ E(X_1) - E(X_2) \right]\\
+	&= E[(X_1)^2 - (X_2)^2] - \left[ E(X_1)^2 - E(X_2)^2 \right]\\
+	&= E({X_1}^2) - E(X_1)^2 + (E({X_2}^2) - E(X_2)^2)\\
+	&= \var(X_1) + \var(X_2)
+\end{align*}
+	
+\end{document}

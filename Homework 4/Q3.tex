@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 4}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+
+\begin{document}
+\section*{Exercise 2.62}
+An office supply warehouse receives an order for three computers. The warehouse has 50 computers in stock, two of which are defective. The order is filled by randomly drawing from the computers in stock. Let $X$ be the number of defective computers in the order.
+\begin{enumerate}[\quad(a)]
+	\item Give the formula for the probability distribution of $X$.
+	\begin{center}
+		Given that $X$ appears here to be a hypergeometric distribution and the attribute that we're interested in is if we have a broken computer:\\
+		$ f(x) = \frac{\binom{2}{x} \binom{50-2}{3-x}}{\binom{50}{3}} $
+	\end{center}
+	\item What is the probability that the customer is not sent any of the defective computers?
+		\[ f(0) = \frac{\binom{2}{0} \binom{50-2}{3-0}}{\binom{50}{3}} \]
+		\[ f(0) = 0.8824 \]
+	\item Use the binomial distribution to approximate the probability that no defective computers are send. Is the approximation accurate?
+		\[ f(0) = \binom{3}{0}(0.04)^0(0.96)^{3} = 0.8847 \]
+		The approximation is pretty accurate, the difference between the two is only 0.23\%.
+\end{enumerate}
+\end{document}

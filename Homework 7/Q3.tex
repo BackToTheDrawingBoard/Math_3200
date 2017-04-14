@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 5}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+\newcommand{\bias}{\text{Bias}}
+
+\begin{document}
+\section*{Exercise 6.5}
+\begin{enumerate}[\quad(a)]
+	\item Find the expected value and bias of each estimator
+	\begin{align*}
+		E(\hat{p}_1) &= p \text{ by normal approximation} &
+			E(\hat{p}_2) &= 1/2\\
+		\bias(\hat{p}_1)  &= E(\hat{p}_1) - p &
+			\bias(\hat{p}_2)  &= E(\hat{p}_2) - p \\
+		&= p - p &
+			\bias(\hat{p}_2)  &= 1/2 - p\\
+		\bias(\hat{p}_1)  &= 0\\
+	\end{align*}
+	\item Find the variance of each estimator. Which estimator has lower variance?
+	\begin{align*}
+		\var(\hat{p}_1) &= E((\hat{p}_1)^2) - E((\hat{p}_1))^2 &
+			\var(\hat{p}_2) &= E((\hat{p}_2)^2) - E((\hat{p}_2))^2 \\
+		&= E((\hat{p}_1)^2) - p^2 &
+			\var(\hat{p}_2) &= 0 \\
+	\end{align*}
+	$\hat{p}_2$ has lower variance
+\end{enumerate}
+\end{document}

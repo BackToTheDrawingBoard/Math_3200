@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+
+%Insert page formatting here
+\hoffset = -.5in
+\voffset = -0.375in
+\textwidth = 7in
+\textheight = 10in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 1}
+\chead{\today}
+\cfoot{}
+
+\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+
+\begin{document}
+\begin{minipage}{6in}
+\section*{Exercise 3.12}
+A complete list of names for the people in the school district is available Name the sampling method used.
+\begin{enumerate}[a)]
+	\item One of the first 50 names on the complete list is randomly chosen; that person and every 50th person on the list after that person are surveyed.
+	
+	\hspace{2em} This is systematic sampling.
+	\item The complete list of names is divided into separate lists by their oldest child's year in school. Random numbers are assigned to names, and each list is ordered by the assigned random numbers. The first 2\% of the ordered names in each list are surveyed.
+	
+	\hspace{2em} This is stratified random sampling.
+	\item A random number is assigned to each name using a computer random number generator. Names are ordered by the random numbers, and the first 1000 are surveyed.
+	
+	\hspace{2em} This is simple random sampling.
+	\item A 50\% SRS is taken of the high schools and of the elementary schools from the district. Within each selected school, a 50\% SRS of grades is chosen. A sampling frame is composed of parents of guardians of children in the selected grades and an SRS of those people is surveyed.
+	
+	\hspace{2em} This is multistage cluster sampling.
+\end{enumerate}
+\end{minipage}
+
+\end{document}

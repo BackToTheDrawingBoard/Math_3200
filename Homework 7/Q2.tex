@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 5}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+\newcommand{\bias}{\text{Bias}}
+
+\begin{document}
+	\section*{Exercise 6.4 + (b)}
+	\begin{enumerate}[\quad(a)]
+		\item
+		\begin{align*}
+		\bias(\bar{X}^2) &= E(\bar{X}^2) - \mu^2\\
+		&= \var(\bar{X}) \\
+		\bias(\bar{X}^2) &= \sigma^2/n\\
+		\end{align*}
+		\item
+		\begin{align*}
+			\text{MSE}(\bar{X}^2) &= E[\bar{X}^2 - \mu^2] \\
+			&= \var(\bar{X}^2) + \bias(\bar{X}^2)^2\\
+			 &= \var(\bar{X}) + \var(\bar{X})^2\\
+			\text{MSE}(\bar{X}^2) &= \sigma^2/n + \sigma^4/n^2
+		\end{align*}
+	\end{enumerate}
+\end{document}

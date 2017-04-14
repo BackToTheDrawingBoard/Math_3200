@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 3}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+
+\begin{document}
+\section*{Exercise 2.39}
+Newsboy problem\\\\
+\begin{tabular}{ccccccccccc}
+	\hline 
+	Demand $(x)$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ 
+	Probability $f(x)$ & 0.01 & 0.04 & 0.05 & 0.10 & 0.15 & 0.20 & 0.20 & 0.10 & 0.10 & 0.05 \\ 
+	\hline 
+\end{tabular} 
+
+\begin{enumerate}[\quad(a)]
+	\item Find the expected demand.
+	\begin{align*}
+		E(X) &= \sum_x (x)f(x)\\
+		&=  1 * 0.01 + 2 * 0.04 + 3 * 0.05 + 4 * 0.10 + 5 * 0.15 \\
+		&\qquad + 6 * 0.20 + 7 * 0.20 + 8 * 0.10 + 9 * 0.10 +10 * 0.05\\
+		E(X)&= 6.19
+	\end{align*}
+	\item Let $n$ denote the number of newspapers that the boy orders. Write the net profit as a function of $n$ and random demand $X$.
+	\begin{align*}
+		p(n) &= \left\{
+		\begin{array}{ll}
+			0.5X - (1.75)(n-X)& X\leq n\\
+			0.5n & X \ge n
+		\end{array}\right\}\\
+		p(n) &= \left\{
+		\begin{array}{ll}
+		2.25X - 1.75n& X\leq n\\
+		0.5n & X \ge n
+		\end{array}\right\}
+	\end{align*}
+	\item Find the value of $n$ that maximizes the expected net profit. Limit your search to $n=4,5,6$.
+	
+	Given that $\lfloor E(X)\rfloor$ is 6:
+	\begin{align*}
+		p(4) &= 2\\
+		p(5) &= 2.5\\
+		p(6) &= 3\\
+		p(7) &= 1.25
+	\end{align*}
+	Therefore the expected profit is maximized when the newsboy gets 6 newspapers per day.
+\end{enumerate}
+
+\end{document}

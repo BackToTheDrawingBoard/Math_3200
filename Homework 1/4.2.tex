@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+
+%Insert page formatting here
+\hoffset = -.5in
+\voffset = -0.375in
+\textwidth = 7in
+\textheight = 10in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 1}
+\chead{\today}
+\cfoot{}
+
+\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+
+\begin{document}
+\begin{minipage}{6in}
+\section*{Exercise 4.2}
+Information collected to compare new car models includes engine size in liters, number of cylinders, size of car (subcompact, compact, mid size, full size), type of transmission (automatic, lockup, or manual), gas guzzler tax (yes/no), dealer cost, and theft rate index (1-1200).
+\begin{enumerate}[\hspace{.5em}a)]
+	\item Classify each variable as categorical (nominal or ordinal) or numerical (discrete or continuous).
+	\begin{description}
+		\item[Engine Size] Numerical, continuous (depending on the granularity of the measurement of the engine)
+		\item[Number of Cylinders] Numerical, discrete
+		\item[Size of Car] Categorical, nominal
+		\item[Type of Transmission] Categorical, nominal
+		\item[Gas Guzzler] Categorical, nominal
+		\item[Dealer Cost] Numerical, continuous
+		\item[Theft Rate Index] Numerical, discrete
+	\end{description}
+	\item Classify the numerical variables as ratio scale or interval scale.
+	\begin{description}
+		\item[Engine Size] Interval
+		\item[Number of Cylinders] Ratio
+		\item[Dealer Cost] Ratio
+		\item[Theft Rate Index] Ratio
+	\end{description}
+\end{enumerate}
+\end{minipage}
+
+\end{document}

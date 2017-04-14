@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 1}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+
+\begin{document}
+	\section*{Exercise 2.10}
+	Without actually expanding, find the coefficients of the indicated terms in the following expansions:
+	\begin{enumerate}[\quad\textbf{(a)}]
+		\item The coefficient of $x^2y^5$ in the expansion of $(x+y)^7$
+		
+		\[ \binom{7}{2} = \mathbf{21} \]
+		The coefficient is 21
+		\item The coefficient of $x^2y^5$ in the expansion of $(2x-3y)^7$
+			\[ \binom{7}{2} (-3)^5 (2)^2 = -20412\]
+		The coefficient is 6048
+		\item The coefficient of $x^2y^2z^3$ in the expansion of $(x+y+z)^7$
+			\[ \binom{10}{4} = 210\]		
+		The coefficient is 210
+	\end{enumerate}
+\end{document}

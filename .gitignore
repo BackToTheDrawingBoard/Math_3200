@@ -1,0 +1,12 @@
+# Ignore everything
+*
+
+# Except .tex files and .gitignore
+!.gitignore
+!*.tex
+
+# Also include .r and .png files for graphs and r and shtuff
+!*.r
+!*.png
+
+!*/
