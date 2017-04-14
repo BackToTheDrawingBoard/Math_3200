@@ -1,25 +1,65 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+%\hoffset = -.5in
+\voffset = -0.375in
+%\textwidth = 6in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 9}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+
 \begin{document}
 
-The foundations of the rigorous study of \emph{analysis}
-were laid in the nineteenth century, notably by the
-mathematicians Cauchy and Weierstrass. Central to the
-study of this subject are the formal definitions of
-\emph{limits} and \emph{continuity}.
+\section*{Exercise 9.12}
 
-Let $D$ be a subset of $\bf R$ and let
-$f \colon D \to \mathbf{R}$ be a real-valued function on
-$D$. The function $f$ is said to be \emph{continuous} on
-$D$ if, for all $\epsilon > 0$ and for all $x \in D$,
-there exists some $\delta > 0$ (which may depend on $x$)
-such that if $y \in D$ satisfies
-\[ |y - x| < \delta \]
-then
-\[ |f(y) - f(x)| < \epsilon. \]
+The following data set from a study by the well-known chemist and Nobel Laureate Linus Pauling gives the incidence of cold among 279 French skiers who were randomized tothe Vitamin C and Placebo groups.
 
-One may readily verify that if $f$ and $g$ are continuous
-functions on $D$ then the functions $f+g$, $f-g$ and
-$f.g$ are continuous. If in addition $g$ is everywhere
-non-zero then $f/g$ is continuous.
+\begin{center}
+	\begin{tabular}{|r|c|c|c|}
+		\hline
+		Group & Cold & No cold & Total\\
+		\hline
+		Vitamin C & 17 & 122 & 139 \\
+		\hline
+		Placebo & 31 & 109 & 140 \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\begin{enumerate}[\quad(a)]
+	\item Test the hypothesis ($ H_0: p_1 = p_2, H_1: p_1 \neq p_2 $) using inference for two proportions.
+	\begin{align*}
+		\hat{p}_{\text{Vitamin C}} = \hat{p}_v &= x/n_1 & \hat{p}_{\text{Placebo}} = \hat{p}_p &= x/n_1 \\
+		\hat{p}_v &= 17/139 & \hat{p}_p &= 31/140\\
+	\end{align*}
+	\item Test the hypothesis using Pearson chi-square test, and compare your result with part (a).
+\end{enumerate}
 
 \end{document}
