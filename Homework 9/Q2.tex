@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+\hoffset = -.5in
+\voffset = -0.375in
+\textwidth = 7in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 9}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+
+\begin{document}
+
+\section*{Exercise 9.20}
+
+\begin{enumerate}[\quad(a)]
+	\item State the hypothesis that the four phenotypes appear in the proportion 9:3:3:1.
+		$$ H_0 : \quad p_1 = 9/16 \quad p_2 = 3/16 \quad p_3 = 3/16 \quad p_4 = 1/16 $$
+	\item Test thte hypotheses. Use $\alpha = 0.05$.
+	\begin{align*}
+		\hat{e}_n &= n \cdot p_n = 1611 \cdot p_n\\
+		\chi^2 &= \sum \frac{(\text{observed } - \text{ expected})^2}{\text{expected}}\\
+		&= \frac{(926 - (1611 \cdot (9 / 16)))^2}{(1611 \cdot (9 / 16))} %
+		 + \frac{(293 - (1611 \cdot (3 / 16)))^2}{(1611 \cdot (3 / 16))} %
+		 + \frac{(288 - (1611 \cdot (3 / 16)))^2}{(1611 \cdot (3 / 16))} %
+		 + \frac{(104 - (1611 \cdot (1 / 16)))^2}{(1611 \cdot (1 / 16))}\\
+		&= 0.4332 + 0.2719 + 0.6547 + 0.1090 \\
+		&= 1.4687\\
+		\chi^2_{(4-1),\ 0.05} &= 7.815\\
+		\chi^2 &< \chi^2_{3, 0.05}
+	\end{align*}
+	Because $\chi^2 < \chi^2_{3,\ 0.05}$, we must accept $H_0$, which tells us that the four phenotypes appear in the proportion 9:3:3:1.
+\end{enumerate}
+
+\end{document}

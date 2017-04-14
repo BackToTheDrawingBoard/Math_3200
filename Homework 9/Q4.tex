@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+\hoffset = -.5in
+\voffset = -0.375in
+\textwidth = 7in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 9}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+
+\begin{document}
+
+\section*{Exercise 10.14}
+
+Show that $\bar{Y}$ and $\hat{\beta}_1$ are independent.
+
+\begin{align*}
+	\hat{Y} &= \tfrac{1}{n} \sum Y_i\\
+	\hat{\beta}_1 &= \sum c_i Y_i \\
+	c_i &= (x_i - \bar{x}) / S_{xx} \\
+	\sum c_i &= 0 \\
+	\cov(\bar{Y},\hat{\beta}_1) &= \sum \sum a_i b_j \cov (\bar{Y}_i,\hat{\beta}_{1i}) \\
+	\cov (\bar{Y}_i,\hat{\beta}_{1i}) &= E[(\bar{Y}_i - \mu_{\bar{Y}_i})(\hat{\beta}_{1i} - \mu_{\hat{\beta}_{1i}})] \\
+	&= E[(Y_i - Y)(c_iY_i - c_iY_i (\tfrac{1}{n}))] \\
+	&= E[(Y_i - Y)(c_iY_i - c_iY)] \\
+	&= c_i\cdot E[(Y_i - Y)^2] \\
+	&= c_i\cdot \var(Y) \\
+	\cov(\bar{Y},\hat{\beta}_1) &= \sum \sum a_i b_j c_i \cdot \var(Y) \\
+	&= \sum 0 \cdot \sum a_i b_j \cdot \var(Y) \\
+	\cov(\bar{Y},\hat{\beta}_1) &= 0 \\
+\end{align*}
+
+Because $\bar{Y}$ and $\hat{\beta}_1$ are uncorrelated, they then must be independent.
+
+
+\section*{Exercise 10.33}
+
+\[ \text{Show that   } \sum (y_i - \hat{y}_i)(\hat{y}_i - \bar{y}) = 0 \]
+
+\begin{align*}
+	\hat{y}_i &= \hat{\beta}_0 + \hat{\beta}_1x_i\\
+	&= \bar{y} + \hat{\beta}_1(x_i - \bar{x})\\
+	\sum (y_i - \hat{y}_i)(\hat{y}_i - \bar{y}) &= \sum (y_i - (\hat{\beta}_0 + \hat{\beta}_1x_i))((\hat{\beta}_0 + \hat{\beta}_1x_i) - (\hat{\beta}_0 + \hat{\beta}_1x_i - \hat{\beta}_0 + \hat{\beta}_1x_i)) \\
+	&= \sum (y_i - (\hat{\beta}_0 + \hat{\beta}_1x_i))(- (\hat{\beta}_0 + \hat{\beta}_1x_i)) \\
+	&= \sum y_i(- (\hat{\beta}_0 + \hat{\beta}_1x_i)) + \sum (\hat{\beta}_0 + \hat{\beta}_1x_i)^2 \\
+	&=  \sum(- (\hat{\beta}_0 + \hat{\beta}_1x_i)) + \sum (\hat{\beta}_0 + \hat{\beta}_1x_i)^2 \\
+	&= \sum y_i \hat{y}_i - \sum (\hat{y}_i)^2 \\
+	\sum (y_i - \hat{y}_i)(\hat{y}_i - \bar{y}) &= 0
+\end{align*}
+
+\end{document}

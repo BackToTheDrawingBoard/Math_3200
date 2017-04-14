@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+\hoffset = -.5in
+\voffset = -0.375in
+\textwidth = 7in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 9}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+
+\begin{document}
+
+\section*{Exercise 9.32}
+
+\begin{enumerate}[\quad(a)]
+	\item The sampling is product multinomial.
+	\item Test $H_0:\ p_{ij} = P(X = i, Y = j) = P(X = i) P(Y = j) = p_ip_j$
+
+	Given that the R test that I ran returned a p-value of less than $2.2\times 10^{-16}$, we can reject the null hypothesis at almost any level of certainty, and accept that eye color and hair color are associated.
+
+	The test statistic has a distribution of $\chi^2_{9}$.
+\section*{R Code}
+\begin{verbatim}
+# Import data
+A <- matrix(
+  c(
+    68, 20, 15, 5, 
+    119, 84, 54, 29, 
+    26, 17, 14, 14, 
+    7, 94, 10, 16
+  ), nrow = 4, ncol = 4)
+# Run test
+(chisq.test(A))
+\end{verbatim}
+
+\section*{R Output}
+\begin{verbatim}
+> A <- matrix(
++   c(
++     68, 20, 15, 5, 
++     119, 84, 54, 29, 
++     26, 17, 14, 14, 
++     7, 94, 10, 16
++   ), nrow = 4, ncol = 4)
+
+> chisq.test(A)
+
+	Pearson's Chi-squared test
+
+data:  A
+X-squared = 138.29, df = 9, p-value < 2.2e-16
+\end{verbatim}
+\end{enumerate}
+
+\end{document}

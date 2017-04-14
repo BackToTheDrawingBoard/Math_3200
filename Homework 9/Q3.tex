@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+%Insert page formatting here
+\hoffset = -.5in
+\voffset = -0.375in
+\textwidth = 7in
+\textheight = 8in
+\headheight = 24pt
+
+\pagestyle{fancy}
+
+\rhead{Peter Olson\\Student ID: $441666$}
+\lhead{Math 3200\\Homework 9}
+\chead{\today}
+\cfoot{}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+
+%\renewcommand{\labelitemi}{$\diamond$}
+\renewcommand{\implies}{\rightarrow}
+\newcommand{\widespace}{\qquad \qquad \;}
+\newcommand{\tret}{\\ \hline}
+\newcommand{\fh}{\tfrac{1}{2}}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\delta #1}{\delta #2}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\at}{\text{ at }}
+\newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+
+\begin{document}
+
+\section*{Exercise 9.22}
+
+\begin{enumerate}[\quad(a)]
+\item Test to see if the number of passengers follows a Poisson distribution.
+
+\begin{align*}
+	\hat{\lambda} &= \frac{\sum (i \cdot n_i)}{n}\\
+	&= \frac{ 0 \cdot 678 + 1 \cdot 227 + 2 \cdot 56 + 3 \cdot 28  + 4 \cdot 8 + 5 \cdot 14}{678 + 227 + 56 + 28 + 8 + 14} \\
+	&= 0.5193 \\
+	\hat{p}_{i0} &= (e^{-\hat{\lambda}}\hat{\lambda}^i) / i\\
+	&= (0.5949 \cdot 0.5193^i)/i
+\end{align*}
+
+\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+	\hline
+	Passengers & 0 & 1 & 2 & 3 & 4 & $\geq 5$ \\ 
+	\hline
+	Frequency & 678 & 227 & 56 & 28 & 8 & 14 \\
+	\hline
+	Poisson Prob & 0.5949 & 0.3090 & 0.0802 & 0.01389 & 0.001803 & 0.0002047 \\
+	\hline
+	Expected & $\mathit{601.4}$ & $\mathit{312.4}$ & $\mathit{81.08}$ & $\mathit{14.04}$ & $\mathit{1.823}$ & $\mathit{0.2069}$ \\
+	\hline
+	\end{tabular}
+\end{center}
+
+\begin{align*}
+	\chi^2 &= \sum \frac{(\text{observed } - \text{ expected})^2}{\text{expected}}\\
+	&= \frac{(678 - 601.4)^2}{601.4} + \frac{(227 - 312.4)^2}{312.4} + \frac{(56 - 81.08)^2}{81.08} + \frac{(28 - 14.04)^2}{14.04} \\
+	&\qquad\qquad + \frac{(8 - 1.823)^2}{1.823} + \frac{(14 - 0.2069)^2}{0.2069} \\
+	&= 9.756 + 23.35 + 6.758 + 13.88 + 20.93 + 919.52\\
+	&= 995.1948 \\
+	\text{P-value}(\chi^2_{(6-2)}) &< 0.00001
+\end{align*}
+
+Based on the fit's p-value, it's glaringly obvious that it does not have a Poisson fit.
+
+\item Test to see if it has a geometric distribution.
+
+\begin{align*}
+	p &= 0.5193 \\
+	p_i &= (1 - p)^{x - 1}p\\
+	&= 0.5193 \cdot (0.4907)^{x - 1}
+\end{align*}
+
+\begin{center}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+	\hline
+	Passengers & 0 & 1 & 2 & 3 & 4 & $\geq 5$ \\ 
+	\hline
+	Frequency & 678 & 227 & 56 & 28 & 8 & 14 \\
+	\hline
+	Geometric Prob & 0.5193 & 0.2548 & 0.125 & 0.06136 & 0.03011 & 0.02901 \\
+	\hline
+	Expected & $ \mathit{525.0} $ & $\mathit{257.6}$ & $\mathit{126.4}$ & $\mathit{62.03}$ & $\mathit{30.44}$ & $\mathit{29.33}$ \\
+	\hline
+	\end{tabular}
+\end{center}
+
+\begin{align*}
+	\chi^2 &= \sum \frac{(\text{observed } - \text{ expected})^2}{\text{expected}}\\
+	&= \frac{(678 - 525)^2}{525} + \frac{(227 - 257.6)^2}{257.6} + \frac{(56 - 126.4)^2}{126.4} + \frac{(28 - 62.03)^2}{62.03} \\
+	&\qquad\qquad + \frac{(8 - 30.44)^2}{30.44} + \frac{(14 - 29.33)^2}{29.33}\\
+	&= 139.7\\
+	\text{P-value}(\chi^2_{(6-2)}) &< 0.00001
+\end{align*}
+
+The geometric fit is just as abysmally bad.
+
+\item Geometric fit, as it has a smaller $\chi^2$ value.
+
+\end{enumerate}
+
+\end{document}

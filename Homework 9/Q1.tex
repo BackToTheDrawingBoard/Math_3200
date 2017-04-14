@@ -7,9 +7,9 @@
 \usepackage{graphicx}
 
 %Insert page formatting here
-%\hoffset = -.5in
+\hoffset = -.5in
 \voffset = -0.375in
-%\textwidth = 6in
+\textwidth = 7in
 \textheight = 8in
 \headheight = 24pt
 
@@ -54,12 +54,63 @@ The following data set from a study by the well-known chemist and Nobel Laureate
 \end{center}
 
 \begin{enumerate}[\quad(a)]
-	\item Test the hypothesis ($ H_0: p_1 = p_2, H_1: p_1 \neq p_2 $) using inference for two proportions.
+	\item Test the hypothesis ($ H_0: p_v - p_p = 0, H_1: p_v - p_p \neq 0 $) using inference for two proportions.\\
+
+
+	Given that $n_v\hat{p}_v = 13 > 10, (1-\hat{p}_v)n_v = 122 > 10, n_p \hat{p}_p = 31 > 10, \text{ and } (1-\hat{p}_p)n_p = 109 > 10$, we can safely apply the CLT, and assume that the random variables $\hat{p}_v$ and $\hat{p}_p$ are normally distributed.
 	\begin{align*}
 		\hat{p}_{\text{Vitamin C}} = \hat{p}_v &= x/n_1 & \hat{p}_{\text{Placebo}} = \hat{p}_p &= x/n_1 \\
-		\hat{p}_v &= 17/139 & \hat{p}_p &= 31/140\\
+		\hat{p}_v &= 17/139 & \hat{p}_p &= 31/140\\	
+		\hat{p}_v &= 0.1223 & \hat{p}_p &= 0.2214
 	\end{align*}
+	\begin{align*}
+		z &= \frac{\hat{p}_v - \hat{p}_p}{\sqrt{\frac{\hat{p}_v\hat{q}_v}{n_v}+\frac{\hat{p}_p\hat{q}_p}{n_p}}} = \frac{\hat{p}_v - \hat{p}_p}{\sqrt{\frac{\hat{p}_v(1 - \hat{p}_v)}{n_v}+\frac{\hat{p}_p(1 - \hat{p}_p)}{n_p}}}\\
+		z &= \frac{0.1223 - 0.2214}{\sqrt{\frac{0.1223 \cdot 0.8777}{139} + \frac{0.2214 \cdot 0.7786}{140}}}\\
+		z &= -2.214\\
+		\text{P-value}(z) &= 2[1-\Phi(|z|)] = 2[1 - \Phi(|-2.214|)]\\
+		\Phi(|-2.214|) = \Phi(2.214) &\approx \Phi(2.21) = 0.9864\\
+		\text{P-value}(z) &\approx 2[1 - 0.9864]\\
+		\text{P-value}(z) &\approx 0.0272 < \alpha = 0.05
+	\end{align*}
+	Given that the P-value for the test statistic, $z$, for $H_0$ is smaller than our certainty, $\alpha$, we can reject $H_0$ in favor of $H_1$, and claim that there is a demonstrable difference in the healthiness of the skiiers with and without a Vitamin C supplement.
 	\item Test the hypothesis using Pearson chi-square test, and compare your result with part (a).
+	$$ H_0: p_v - p_p = 0, H_1: p_v - p_p \neq 0 $$
+	\begin{center}
+	Estimates are beside the measured numbers in the table, \\italicized, and calculated by the function $\hat{e}_{ij} = n(p_i \cdot p_j)$.
+
+		\begin{tabular}{|r|c|c|c|}
+			\hline
+			Group & Cold & No cold & Total\\
+			\hline
+			Vitamin C & 17 - \emph{23.91} & 122 - \emph{115.1} & 139 \\
+			\hline
+			Placebo & 31 - \emph{24.09} & 109 - \emph{115.9} & 140 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{align*}
+		\chi^2 &= \sum \frac{(\text{observed } - \text{ expected})^2}{\text{expected}}\\
+		&= \frac{(17 - 23.91)^2}{23.91} + \frac{(122 - 115.1)^2}{115.1} + \frac{(31 - 24.09)^2}{24.09} + \frac{(109 - 115.9)^2}{115.9}\\
+		&= 1.997 + 0.4136 + 1.982 + 0.4107\\
+		\chi^2 &= 4.803\\
+		\text{P-value}(\chi^2_{(2-1)(2-1)}) &= 0.02841\\
+	\end{align*}
+	With an almost identical p-value, this Pearson $\chi^2$ test also indicates that we can confidently reject $H_0$ and accept $H_1$.
+\end{enumerate}
+
+\section*{Exercise 9.23}
+
+\begin{enumerate}[\quad(a)]
+	\item Show that $z^2 = \chi^2$
+	\begin{align*}
+		z &= \frac{y - n\hat{p}_0}{\sqrt{n\hat{p}_0(1-\hat{p}_0)}}\\
+		\chi^2 &= \sum \frac{(n_i - e_i)^2}{e_i}\\
+		z^2 &= \frac{(y - n\hat{p}_0)^2}{n\hat{p}_0(1-\hat{p}_0)}\\
+		&= \frac{(y - n\hat{p}_0)^2}{e}\\
+		% \sum \frac{(n_i - e_i)^2}{np_{i0}} &= \frac{(y - n\hat{p}_0)^2}{n\hat{p}_0(1-\hat{p}_0)}\\
+		\sum \frac{(n_i - e_i)^2}{np_{i0}} &\approx \frac{(y - np_0)^2}{e}\\
+		\therefore \chi^2 &= z^2\\
+	\end{align*}
 \end{enumerate}
 
 \end{document}
