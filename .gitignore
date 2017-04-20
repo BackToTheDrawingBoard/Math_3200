@@ -1,12 +1,18 @@
-# Ignore everything
-*
+# Ignore tex temp files
+*.aux
+*.log
+*.pdf
+*.synctex.gz
 
-# Except .tex files and .gitignore
-!.gitignore
-!*.tex
+# # Ignore everything
+# *
 
-# Also include .r and .png files for graphs and r and shtuff
-!*.r
-!*.png
+# # Except .tex files and .gitignore
+# !.gitignore
+# !*.tex
 
-!*/
+# # Also include .r and .png files for graphs and r and shtuff
+# !*.r
+# !*.png
+
+# !*/
