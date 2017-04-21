@@ -5,6 +5,7 @@
 \usepackage{datetime}
 \usepackage{enumerate}
 \usepackage{graphicx}
+\usepackage{hyperref}
 
 %Insert page formatting here
 \hoffset = -.5in
@@ -37,10 +38,44 @@
 
 \begin{document}
 
-\section*{Exercise }
+\section*{Exercise 10.8 + (b) + (c)}
 
 \begin{enumerate}[\quad(a)]
-	\item
+	\item Show that the LS estimate of the slope coefficient $\beta_1$ when fitting the straight line $y=\beta_1x$ based on the data $(x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n)$ is \[ \hat{\beta}_1 = \frac{\sum x_i y_i}{\sum x_i^2} \]
+	\begin{align*}
+		\bar{X} &= 0\\
+		\bar{Y} &= 0\\
+		\hat{\beta}_0 &= \bar{y} - \hat{\beta}_1\bar{x} = 0 \\
+		\hat{\beta}_1 &= \frac{\sum(x_i y_i) - \tfrac{1}{n}(\sum x_i) (\sum y_i)}{\sum(x_i^2) - \tfrac{1}{n}(\sum x_i)^2} \\
+		&= \frac{\sum(x_i y_i) - \bar{X} (\sum y_i)}{\sum(x_i^2) - \bar{X}(\sum x_i)}\\
+		&= \frac{\sum(x_i y_i) - 0 (\sum y_i)}{\sum x_i^2 - 0(\sum x_i)}\\
+		\hat{\beta}_1 &= \frac{\sum(x_i y_i)}{\sum x_i^2}
+	\end{align*}
+	\item Proof that the estimator is unbiased.
+
+	n.b. that this approach follows the approach taken in the textbook's derivation of the sampling distributions of $\hat{\beta_0}$ and $\hat{\beta_1}$
+	\begin{align*}
+		\text{Bias}(\hat{\beta}_1) &= E(\hat{\beta}_1) - \beta_1 \\
+		E(\hat{\beta}_1) &= E\left( \frac{\sum(x_i y_i)}{\sum x_i^2} \right) \\
+		y_i &= \beta_1 x_i \\
+		&= E \left( \frac{\sum(x_i (\beta_1 x_i))}{\sum x_i^2}  \right) \\
+		&= E(\beta_1 \frac{\sum x_i^2}{\sum x_i^2}) \\
+		&= E(\beta_1 \cdot 1) \\
+		&= \beta_1 \\
+		\text{Bias}(\hat{\beta}_1) &= E(\hat{\beta}_1) - \beta_1 \\
+		\text{Bias}(\hat{\beta}_1) &= 0
+	\end{align*}
+	\item Derive the standard error of the estimator
+	\begin{align*}
+		\text{SE}(\hat{\beta}_1) &= \sqrt{\var(\hat{\beta}_1)}\\
+		\text{Let } c_i &= \frac{x_i}{\sum x_i^2}\\
+		\var(\hat{\beta}_1) &= \sum c^2_i\ \var(Y_i)\\
+		&= \sigma^2 \sum c^2_i\\
+		&= \sigma^2 \sum \left( \frac{x_i}{\sum x_i^2} \right) ^2_i\\
+		&= \sigma^2 \sum \frac{x_i}{x_i^2}\\
+		&= \frac{\sigma^2}{\sum x_i} \\\
+		\text{SE}(\hat{\beta}_1) &= \sqrt{\frac{\sigma^2}{\sum x_i}}
+	\end{align*}
 \end{enumerate}
 
 \end{document}
